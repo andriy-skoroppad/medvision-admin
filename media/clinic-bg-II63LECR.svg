@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900"
+     preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <title>Med Vision — decorative optics layer</title>
+  <!--
+    Шар малюнка для фону. Підключається НЕ напряму, а через токен
+    «mv-page-bg-art» (`_tokens.scss`), який лежить першим шаром і в
+    «mv-page-bg» (сіра сторінка продукту), і в «mv-brand-backdrop» (брендове
+    полотно екранів поза оболонкою). Колір полотна дають вони.
+
+    УВАГА: у коментарях цього файлу немає подвійного дефіса — XML його
+    забороняє всередині коментаря, і назви токенів тут навмисно написані в
+    лапках «…», без префікса. Один такий дефіс робить увесь файл невалідним,
+    і браузер мовчки не малює нічого (саме так і сталось під час збирання).
+
+    ЧОМУ ТУТ НЕМАЄ ЗАЛИВКИ ПОЛОТНА І НЕМАЄ NAVY. Файл один на всі поєднання
+    (світла/темна тема × сторінка/бренд-полотно), а `url()` у `background-image`
+    не вміє ні `currentColor`, ні `light-dark()`. Тому полотно прозоре, а вся
+    графіка — лише родина Vision Teal: єдиний брендовий тон, що читається і на
+    світлому #F4F7F9, і на темному #061E34, і на navy градієнті входу. Navy
+    сюди повертати не можна — на двох із трьох він зникає.
+
+    ГЕОМЕТРІЯ. Фон малюється з `background-size: cover`, тобто на вузькому
+    вьюпорті полотно обрізається з боків. Тому фокус стоїть не в самому куті,
+    а на 1040×250: на екрані 650px завширшки він лишається в кадрі.
+  -->
+
+  <defs>
+    <!-- Точка фокуса: сюди сходяться хвильові фронти. Жодного різкого краю. -->
+    <radialGradient id="mvFocus" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#12bfc8" stop-opacity="0.34"/>
+      <stop offset="0.4" stop-color="#00b4a6" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#00b4a6" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Атмосферна вага вгорі праворуч. -->
+    <radialGradient id="mvGlowTeal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#00b4a6" stop-opacity="0.20"/>
+      <stop offset="0.55" stop-color="#12bfc8" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#12bfc8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Промінь заломлення. -->
+    <linearGradient id="mvBeam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12bfc8" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#12bfc8" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Оптична решітка: крапка 1px на кроці 26px. -->
+    <pattern id="mvDots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#00b4a6"/>
+    </pattern>
+
+    <!-- Кільця згасають до лівого нижнього кута — там живе текст. -->
+    <linearGradient id="mvFadeGrad" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="mvFade">
+      <rect width="1440" height="900" fill="url(#mvFadeGrad)"/>
+    </mask>
+
+    <!-- Хвильовий фронт тримається лівого нижнього квадранта. -->
+    <linearGradient id="mvFadeGradLL" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="mvFadeLL">
+      <rect width="1440" height="900" fill="url(#mvFadeGradLL)"/>
+    </mask>
+  </defs>
+
+  <!-- 1 — атмосфера -->
+  <ellipse cx="1100" cy="180" rx="760" ry="620" fill="url(#mvGlowTeal)"/>
+
+  <!-- 2 — текстура -->
+  <rect width="1440" height="900" fill="url(#mvDots)" opacity="0.10"/>
+
+  <!-- 3 — хвильовий фронт із лівого нижнього кута -->
+  <g mask="url(#mvFadeLL)" fill="none" stroke="#00b4a6" stroke-width="1.5">
+    <circle cx="-120" cy="980" r="420" opacity="0.30"/>
+    <circle cx="-120" cy="980" r="540" opacity="0.26"/>
+    <circle cx="-120" cy="980" r="670" opacity="0.22"/>
+    <circle cx="-120" cy="980" r="810" opacity="0.18"/>
+    <circle cx="-120" cy="980" r="960" opacity="0.14"/>
+    <circle cx="-120" cy="980" r="1120" opacity="0.11"/>
+  </g>
+
+  <!-- 4 — діоптрійні кільця навколо фокуса -->
+  <g mask="url(#mvFade)">
+    <circle cx="1040" cy="250" r="300" fill="url(#mvFocus)"/>
+
+    <g fill="none" stroke="#00b4a6">
+      <circle cx="1040" cy="250" r="118" stroke-width="1.4" opacity="0.40"/>
+      <circle cx="1040" cy="250" r="168" stroke-width="1.4" opacity="0.36"/>
+      <circle cx="1040" cy="250" r="228" stroke-width="1.3" opacity="0.32"/>
+      <circle cx="1040" cy="250" r="298" stroke-width="1.3" opacity="0.28"/>
+      <circle cx="1040" cy="250" r="378" stroke-width="1.2" opacity="0.23"/>
+      <circle cx="1040" cy="250" r="468" stroke-width="1.2" opacity="0.18"/>
+      <circle cx="1040" cy="250" r="568" stroke-width="1.1" opacity="0.15"/>
+      <circle cx="1040" cy="250" r="678" stroke-width="1.1" opacity="0.11"/>
+      <circle cx="1040" cy="250" r="798" stroke-width="1" opacity="0.08"/>
+      <circle cx="1040" cy="250" r="928" stroke-width="1" opacity="0.06"/>
+    </g>
+
+    <g fill="none" stroke="#12bfc8" stroke-linecap="round">
+      <circle cx="1040" cy="250" r="198" stroke-width="1.8" opacity="0.45"/>
+      <circle cx="1040" cy="250" r="338" stroke-width="1.5" opacity="0.28" stroke-dasharray="3 13"/>
+      <circle cx="1040" cy="250" r="518" stroke-width="1.3" opacity="0.19" stroke-dasharray="3 17"/>
+    </g>
+
+    <!-- оптична вісь із мітками -->
+    <path d="M 560 250 H 1440" stroke="#00b4a6" stroke-opacity="0.20" stroke-width="1"/>
+    <path d="M 620 250 H 1440" stroke="#12bfc8" stroke-opacity="0.36" stroke-width="2"
+          stroke-linecap="round" stroke-dasharray="2 22"/>
+  </g>
+
+  <!-- 5 — промені, що виходять із фокуса -->
+  <g opacity="0.7">
+    <path d="M 1040 250 L 1440 -60 L 1440 220 Z" fill="url(#mvBeam)"/>
+    <path d="M 1040 250 L 460 900 L 200 900 Z" fill="url(#mvBeam)"/>
+  </g>
+
+  <!-- 6 — горизонт -->
+  <path d="M 0 748 H 900" stroke="#00b4a6" stroke-opacity="0.20" stroke-width="1"/>
+</svg>
