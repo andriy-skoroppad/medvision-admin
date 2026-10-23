@@ -61,6 +61,7 @@ Symbols. Це свідома проміжна ціна — альтернати�
 | 5 | Предметні сутності | `contacts` `badge` `person` `person_add` `calendar_month` `event` `assignment` `shopping_cart` `receipt_long` `point_of_sale` |
 | 6 | Оптика, товар, гроші, файли | `visibility` `eyeglasses` `lens` `palette` `category` `inventory_2` `percent` `payments` `upload_file` `download` |
 | 7 | Розділи меню: організація | `menu_book` `store` `warehouse` `account_tree` `handshake` `admin_panel_settings` `group` `domain` `campaign` `design_services` |
+| 8 | Статуси запису в розкладі | `pending` `event_available` `task_alt` `event_busy` `language` `call` `phone_callback` `history_toggle_off` `priority_high` `person_check` `arrow_circle_down` `arrow_circle_up` `stethoscope` |
 
 **Прев'ю** — `docs/icons-preview.html` (світла й темна тема, 18/24/32 px).
 Перегенерувати після нової партії: `node scripts/build-icons-preview.mjs`.

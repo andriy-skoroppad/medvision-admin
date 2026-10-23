@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300" viewBox="0 0 640 300">
+  <!-- Схема очного дна для шаблонів щоденника (T18.15): диск зорового нерва з носового боку, макула, судинні аркади. -->
+  <rect width="640" height="300" fill="#fff"/>
+  <g fill="none" stroke="#333" stroke-width="2">
+    <!-- OD: диск праворуч (носовий бік) -->
+    <circle cx="160" cy="140" r="120"/>
+    <ellipse cx="205" cy="140" rx="16" ry="19"/>
+    <circle cx="140" cy="140" r="12" stroke-dasharray="3 3"/>
+    <path d="M200 124 C170 70 110 60 60 80 M200 156 C170 210 110 220 60 200 M210 124 C220 90 230 70 240 60 M210 156 C220 190 230 210 240 220" stroke="#a33" stroke-width="1.6"/>
+    <!-- OS: диск ліворуч (носовий бік) -->
+    <circle cx="480" cy="140" r="120"/>
+    <ellipse cx="435" cy="140" rx="16" ry="19"/>
+    <circle cx="500" cy="140" r="12" stroke-dasharray="3 3"/>
+    <path d="M440 124 C470 70 530 60 580 80 M440 156 C470 210 530 220 580 200 M430 124 C420 90 410 70 400 60 M430 156 C420 190 410 210 400 220" stroke="#a33" stroke-width="1.6"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">
+    <text x="160" y="292">OD</text>
+    <text x="480" y="292">OS</text>
+  </g>
+</svg>

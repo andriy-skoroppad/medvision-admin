@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="280" viewBox="0 0 640 280">
+  <!-- Схема переднього відрізка ока для шаблонів щоденника (T18.15). Біле тло — щоб розмальований PNG не був прозорим. -->
+  <rect width="640" height="280" fill="#fff"/>
+  <g fill="none" stroke="#333" stroke-width="2">
+    <!-- OD -->
+    <path d="M30 140 Q160 30 290 140 Q160 250 30 140 Z"/>
+    <circle cx="160" cy="140" r="62"/>
+    <circle cx="160" cy="140" r="22"/>
+    <path d="M42 128 Q160 52 278 128" stroke-dasharray="4 4" stroke="#888"/>
+    <!-- OS -->
+    <path d="M350 140 Q480 30 610 140 Q480 250 350 140 Z"/>
+    <circle cx="480" cy="140" r="62"/>
+    <circle cx="480" cy="140" r="22"/>
+    <path d="M362 128 Q480 52 598 128" stroke-dasharray="4 4" stroke="#888"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">
+    <text x="160" y="268">OD</text>
+    <text x="480" y="268">OS</text>
+  </g>
+</svg>
